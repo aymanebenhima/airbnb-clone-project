@@ -119,10 +119,121 @@ git commit -m "Initial project setup"
 
 ---
 
+# 🧱 StayBackend: Airbnb Clone – Backend Architecture
 
-- [x] Review link generated before deadline
-- [x] Peer reviews requested
+## 📌 Project Overview
+
+StayBackend is the backend foundation of the StayEase platform, designed to replicate core Airbnb functionalities. It supports user authentication, property listings, booking workflows, secure payments, and review systems. This project emphasizes scalable architecture, robust API design, and secure data management.
 
 ---
 
-Would you like this scaffold adapted into a bilingual fiche or LMS-ready format? I can also help you transform this into a visual roadmap or interactive quiz for learners.
+## 🎯 Project Goals
+
+- Build a RESTful API using Django and GraphQL
+- Design a relational database with normalized entities
+- Implement secure authentication and authorization
+- Enable CI/CD for automated deployment
+- Document backend workflows for team collaboration
+
+---
+
+## 🧑‍💻 Team Roles
+
+| Role                 | Responsibilities |
+|----------------------|------------------|
+| Backend Developer    | API development, business logic, integration |
+| Database Administrator | Schema design, optimization, data integrity |
+| DevOps Engineer      | CI/CD setup, containerization, deployment |
+| QA Engineer          | Backend testing, bug tracking, performance checks |
+
+---
+
+## 🧰 Technology Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **Django** | Web framework for API development |
+| **PostgreSQL** | Relational database management |
+| **GraphQL** | Flexible query language for APIs |
+| **Docker** | Containerization for consistent environments |
+| **GitHub Actions** | CI/CD automation |
+| **JWT** | Secure user authentication |
+
+---
+
+## 🗃️ Database Design
+
+### 🔑 Key Entities
+
+| Entity     | Fields (Sample) |
+|------------|-----------------|
+| **User**   | id, name, email, password_hash |
+| **Property** | id, title, location, host_id |
+| **Booking** | id, user_id, property_id, check_in, check_out |
+| **Review** | id, user_id, property_id, rating, comment |
+| **Payment** | id, booking_id, amount, status, transaction_id |
+
+### 🔗 Relationships
+
+- A **User** can list multiple **Properties**
+- A **Booking** belongs to one **User** and one **Property**
+- A **Review** is linked to both **User** and **Property**
+- A **Payment** is tied to a **Booking**
+
+---
+
+## ⚙️ Feature Breakdown
+
+| Feature             | Description |
+|---------------------|-------------|
+| **User Management** | Registration, login, profile updates |
+| **Property Management** | CRUD operations for listings |
+| **Booking System** | Reservation creation, availability checks |
+| **Payment Integration** | Secure transaction handling |
+| **Review System** | Ratings and feedback from users |
+
+---
+
+## 🔐 API Security
+
+| Measure         | Purpose |
+|-----------------|---------|
+| **Authentication (JWT)** | Verify user identity |
+| **Authorization** | Role-based access control |
+| **Rate Limiting** | Prevent abuse and DDoS attacks |
+| **Input Validation** | Sanitize user inputs |
+| **HTTPS Enforcement** | Secure data transmission |
+
+---
+
+## 🔄 CI/CD Pipeline
+
+| Tool            | Role |
+|-----------------|------|
+| **GitHub Actions** | Automate testing and deployment |
+| **Docker**         | Containerize backend services |
+| **Heroku / AWS**   | Host and scale the application |
+
+CI/CD ensures fast, reliable deployments and minimizes manual errors.
+
+---
+
+## 📦 Repository Setup
+
+```bash
+# Clone the repo
+git clone https://github.com/aymanebenhima/airbnb-clone-project
+
+# Navigate to backend folder
+cd staybackend
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Start server
+python manage.py runserver
+```
+
